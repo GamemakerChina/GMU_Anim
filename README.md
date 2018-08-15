@@ -7,6 +7,12 @@ GMU_Anim
 
 安装
 -----
+YYMP扩展包安装
+-----
+从 [https://github.com/GamemakerChina/GMU_Anim/releases](https://github.com/GamemakerChina/GMU_Anim/releases) 中下载 `.yymp` 后拖入 GMS2 并导入全部资源即可。
+
+手动安装
+-----
 将文件下载到本地后
 1. 手动添加 Scripts 文件夹内的文件到资源列表的Scripts分类内；或可复制文件内容，手动添加同名Scrpit，将内容粘贴入Script。
 2. 手动创建以“_gmu_anim”（不带引号）为名称的Object，手动创建与 Objects\\_gmu_anim\\ 文件夹内文件的同名事件，并将文件内容复制粘贴进相应事件中。
