@@ -53,7 +53,7 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 	* 返回值
 		* 缓动实例；若有多个目标实例，则会返回数组
 
-* GMU_Anim_Stop(anim/inst/obj, var_name*);
+* GMU_Anim_Stop(anim_inst/inst/obj, var_name*);
 	* 描述
 		* 终止目标缓动实例
 	* anim/inst/obj
@@ -63,7 +63,7 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 	* 返回值
 		* 是否有缓动实例被终止
 
-* GMU_Anim_Skip(anim/inst/obj, var_name*);
+* GMU_Anim_Skip(anim_inst/inst/obj, var_name*);
 	* 描述
 		* 提前结束目标缓动实例
 	* anim/inst/obj
@@ -73,7 +73,7 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 	* 返回值
 		* 是否有缓动实例被提前结束。
 
-* GMU_Anim_IsExists(anim/inst/obj, var_name*);
+* GMU_Anim_IsExists(anim_inst/inst/obj, var_name*);
 	* 描述
 		* 查询目标缓动实例是否存在
 	* anim/inst/obj
