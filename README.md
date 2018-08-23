@@ -3,13 +3,20 @@ GMU_Anim
 简介
 -----
 本插件用于简化实例变量缓动的过程，旨在使用一个函数，即可完成复杂的缓动过程。<br>
-适用版本：Gamemaker Studio 2
+适用版本：Gamemaker Studio 2 & GameMaker: Studio
 
 安装
 -----
-YYMP扩展包安装
+YYMP 扩展包安装
 -----
 从 [https://github.com/GamemakerChina/GMU_Anim/releases](https://github.com/GamemakerChina/GMU_Anim/releases) 中下载 `.yymp` 后拖入 GMS2 并导入全部资源即可。
+
+GMEZ 扩展包安装（是否可用未知）
+-----
+
+从 [https://github.com/GamemakerChina/GMU_Anim/releases](https://github.com/GamemakerChina/GMU_Anim/releases) 中下载 `.gmez` 后拖入 GM:S 并导入全部资源即可。
+
+GM: S 版本分支：[https://github.com/LiarOnce/GMU_Anim/tree/gms1](https://github.com/LiarOnce/GMU_Anim/tree/gms1)
 
 手动安装
 -----

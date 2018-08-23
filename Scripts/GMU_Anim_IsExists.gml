@@ -1,4 +1,4 @@
-///@arg anim/inst/obj
+///@arg anim_inst/inst/obj
 ///@arg var_name*
 var inst=argument[0];
 var var_name="";
@@ -27,14 +27,9 @@ if(instance_exists(inst)){
 			inst_find=instance_find(_gmu_anim,proc);
 			if(instance_exists(inst_find)){
 				if(instance_exists(inst_find._inst)){
-					if(var_name==""){
+					if(var_name==""||inst_find._var_name==var_name){
 						result=true;
 						break;
-					}else{
-						if(inst_find._var_name==var_name){
-							result=true;
-							break;
-						}
 					}
 				}
 			}

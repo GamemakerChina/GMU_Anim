@@ -5,35 +5,35 @@ var c=_change;
 var d=_duration;
 
 switch(_tween){
-	case GMU_ANIM_LINEAR:
+	case GMU_ANIM.LINEAR:
 		r=(t/d)*c+b;
 		break;
 		
-	case GMU_ANIM_SINE:
+	case GMU_ANIM.SINE:
 		switch(_ease){
-			case GMU_ANIM_IN:
+			case GMU_ANIM.IN:
 				r=-c*cos(t/d*(pi/2))+c+b;
 				break;
-			case GMU_ANIM_OUT:
+			case GMU_ANIM.OUT:
 				r=c*sin(t/d*(pi/2))+b;
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				r=-c/2*(cos(pi*t/d)-1)+b;
 				break;
 		}
 		break;
 		
-	case GMU_ANIM_QUAD:
+	case GMU_ANIM.QUAD:
 		switch(_ease){
-			case GMU_ANIM_IN:
+			case GMU_ANIM.IN:
 				t/=d;
 				r=c*t*t+b;
 				break;
-			case GMU_ANIM_OUT:
+			case GMU_ANIM.OUT:
 				t/=d;
 				r=-c*t*(t-2)+b;
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				t/=d/2;
 				if(t<1){
 					r=c/2*t*t+b;
@@ -44,17 +44,17 @@ switch(_tween){
 		}
 		break;
 		
-	case GMU_ANIM_CUBIC:
+	case GMU_ANIM.CUBIC:
 		switch(_ease){
-			case GMU_ANIM_IN:
+			case GMU_ANIM.IN:
 				t/=d;
 				r=c*t*t*t+b;
 				break;
-			case GMU_ANIM_OUT:
+			case GMU_ANIM.OUT:
 				t=t/d-1
 				r=c*(t*t*t+1)+b;
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				t/=d/2
 				if(t<1){
 					r=c/2*t*t*t+b;
@@ -66,17 +66,17 @@ switch(_tween){
 		}
 		break;
 		
-	case GMU_ANIM_QUART:
+	case GMU_ANIM.QUART:
 		switch(_ease){
-			case GMU_ANIM_IN:
+			case GMU_ANIM.IN:
 				t/=d;
 				r=c*t*t*t*t+b;
 				break;
-			case GMU_ANIM_OUT:
+			case GMU_ANIM.OUT:
 				t=t/d-1;
 				r=-c*(t*t*t*t-1)+b;
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				t/=d/2
 				if(t<1){
 					r=c/2*t*t*t*t+b;
@@ -88,17 +88,17 @@ switch(_tween){
 		}
 		break;
 		
-	case GMU_ANIM_QUINT:
+	case GMU_ANIM.QUINT:
 		switch(_ease){
-			case GMU_ANIM_IN:
+			case GMU_ANIM.IN:
 				t/=d;
 				r=c*t*t*t*t*t + b;
 				break;
-			case GMU_ANIM_OUT:
+			case GMU_ANIM.OUT:
 				t=t/d-1;
 				r=c*(t*t*t*t*t+1)+b;
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				t/=d/2
 				if(t<1){
 					r=c/2*t*t*t*t*t+b;
@@ -110,23 +110,31 @@ switch(_tween){
 		}
 		break;
 		
-	case GMU_ANIM_EXPO:
+	case GMU_ANIM.EXPO:
 		switch(_ease){
-			case GMU_ANIM_IN:
-				r=(t==0)?b : c*power(2,10*(t/d-1))+b;
+			case GMU_ANIM.IN:
+				if(t==0){
+					r=b;
+				}else{
+					r=c*power(2,10*(t/d-1))+b;
+				}
 				break;
-			case GMU_ANIM_OUT:
-				r=(t==d)?b+c : c * (-power(2,-10*t/d)+1)+b;
+			case GMU_ANIM.OUT:
+				if(t==d){
+					r=b+c;
+				}else{
+					r=c * (-power(2,-10*t/d)+1)+b;
+				}
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				if (t==0){
 					r=b;
 				}
-			   if(t==d){
+				if(t==d){
 					r=b+c;
 				}
 				t/=d/2;
-			  if (t<1){
+				if (t<1){
 					r=c/2*power(2,10*(t-1))+b;
 				}else{
 					r=c/2*(-power(2,-10*--t)+2)+b;
@@ -135,17 +143,17 @@ switch(_tween){
 		}
 		break;
 		
-	case GMU_ANIM_CIRC:
+	case GMU_ANIM.CIRC:
 		switch(_ease){
-			case GMU_ANIM_IN:
+			case GMU_ANIM.IN:
 				t/=d;
 				r=-c*(sqrt(1-t*t)-1)+b;
 				break;
-			case GMU_ANIM_OUT:
+			case GMU_ANIM.OUT:
 				t=t/d-1;
 				r=c*sqrt(1-t*t)+b;
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				t/=d/2;
 				if(t<1){
 					r=-c/2*(sqrt(1-t*t)-1)+b;
@@ -157,22 +165,22 @@ switch(_tween){
 		}
 		break;
 		
-	case GMU_ANIM_BACK:
-		if(_extra1>0){
-			var s=_extra1;
+	case GMU_ANIM.BACK:
+		if(_arg1>0){
+			var s=_arg1;
 		}else{
 			var s=1.70158;
 		}
 		switch(_ease){
-			case GMU_ANIM_IN:
+			case GMU_ANIM.IN:
 				t/=d;
 				r=c*t*t*((s+1)*t-s)+b;
 				break;
-			case GMU_ANIM_OUT:
+			case GMU_ANIM.OUT:
 				t=t/d-1;
 				r=c*(t*t*((s+1)*t+s)+1)+b;
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				t/=d/2;
 				s*=1.525;
 				if(t<1){
@@ -185,11 +193,11 @@ switch(_tween){
 		}
 		break;
 		
-	case GMU_ANIM_ELASTIC:
-		var a=_extra1;
-		var p=_extra2;
+	case GMU_ANIM.ELASTIC:
+		var a=_arg1;
+		var p=_arg2;
 		switch(_ease){
-			case GMU_ANIM_IN:
+			case GMU_ANIM.IN:
 				if(t==0){
 					r=b;
 					break;
@@ -199,10 +207,10 @@ switch(_tween){
 					r=b+c;
 					break;
 				}
-				if(!p){
+				if(p==0){
 					p=d*0.3;
 				}
-				if(!a||a<abs(c)){
+				if(a==0||a<abs(c)){
 					a=c;
 					var s=p/4;
 				}else{
@@ -211,7 +219,7 @@ switch(_tween){
 				t-=1;
 				r=-(a*power(2,10*t)* sin((t*d-s)*(2*pi)/p))+b;
 				break;
-			case GMU_ANIM_OUT:
+			case GMU_ANIM.OUT:
 				if(t==0){
 					r=b;
 					break;
@@ -221,10 +229,10 @@ switch(_tween){
 					r=b+c;
 					break;
 				}
-				if(!p){
+				if(p==0){
 					p=d*0.3;
 				}
-				if(!a||a<abs(c)){
+				if(a==0||a<abs(c)){
 					a=c;
 					var s=p/4;
 				}else{
@@ -232,7 +240,7 @@ switch(_tween){
 				}
 				r=a*power(2,-10*t)*sin((t*d-s)*(2*pi)/p)+c+b;
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				if(t==0){
 					r=b;
 					break;
@@ -242,10 +250,10 @@ switch(_tween){
 					r=b+c;
 					break;
 				}
-				if(!p){
+				if(p==0){
 					p=d*(0.3*1.5);
 				}
-				if(!a||a<abs(c)){
+				if(a==0||a<abs(c)){
 					a=c;
 					var s=p/4;
 				}else{
@@ -261,9 +269,9 @@ switch(_tween){
 		}
 		break;
 		
-	case GMU_ANIM_BOUNCE:
+	case GMU_ANIM.BOUNCE:
 		switch(_ease){
-			case GMU_ANIM_IN:
+			case GMU_ANIM.IN:
 				t=d-t;
 				t/=d;
 				if (t<1/2.75){
@@ -280,7 +288,7 @@ switch(_tween){
 				}
 				r=c-r+b;
 				break;
-			case GMU_ANIM_OUT:
+			case GMU_ANIM.OUT:
 				t/=d;
 				if (t<1/2.75){
 					r=c*(7.5625*t*t)+b;
@@ -295,7 +303,7 @@ switch(_tween){
 					r=c*(7.5625*t*t +0.984375)+b;
 				}
 				break;
-			case GMU_ANIM_IN_OUT:
+			case GMU_ANIM.IN_OUT:
 				var ease_in;
 				if(t<d/2){
 					t*=2;
