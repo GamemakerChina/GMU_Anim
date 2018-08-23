@@ -7,5 +7,5 @@ _duration=0;
 _start=0;
 _change=0;
 _delay=0;
-_extra1=0;
-_extra2=0;
+_arg1=0;
+_arg2=0;
