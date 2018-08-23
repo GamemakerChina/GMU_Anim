@@ -35,9 +35,9 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 	* var_name
 		* 变量名称
 	* tween
-		* tween效果，详见`常量`部分
+		* tween效果，详见`枚举常量`部分
 	* ease
-		* ease效果，详见`常量`部分
+		* ease效果，详见`枚举常量`部分
 	* start
 		* 起始值
 	* change
