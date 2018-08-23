@@ -1,4 +1,4 @@
-GMU_Anim
+GMU_Anim (v2.0.0)
 =====
 简介
 -----
@@ -6,12 +6,6 @@ GMU_Anim
 适用版本：Gamemaker Studio 2
 
 安装
------
-YYMP扩展包安装
------
-从 [https://github.com/GamemakerChina/GMU_Anim/releases](https://github.com/GamemakerChina/GMU_Anim/releases) 中下载 `.yymp` 后拖入 GMS2 并导入全部资源即可。
-
-手动安装
 -----
 将文件下载到本地后
 1. 手动添加 Scripts 文件夹内的文件到资源列表的Scripts分类内；或可复制文件内容，手动添加同名Scrpit，将内容粘贴入Script。
@@ -21,29 +15,29 @@ YYMP扩展包安装
 -----
 若要为房间内某个实例或某个Object添加缓动，只需执行`一次`GMU_Anim_New(...)函数即可为指定实例添加缓动。
 ```cpp
-GMU_Anim_New(target, "x", GMU_ANIM_QUAD, GMU_ANIM_OUT, 100, 200, 15, 30);
+GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 ```
 使`target`物体的所有实例的`x`变量，使用`EaseOutQuart`效果，在15帧内从100增大200，延迟30帧执行。<br>
-`GMU_ANIM_QUAD`和`GMU_ANIM_OUT`均为插件的自定义常量，详见`常量`部分。<br>
+`GMU_ANIM.QUAD`和`GMU_ANIM.OUT`均为插件的自定义枚举常量，详见`枚举常量`部分。<br>
 本插件支持 www.easings.net 中列出的所有缓动效果。
 
 函数
 -----
 * GMU_Anim_Init();
 	* 描述
-		* 声明常量，无需调用该函数。
+		* 声明枚举常量，无需调用该函数
 
-* GMU_Anim_New(inst/obj, var_name, tween, ease, start, change, duration, delay*, extra1*, extra2*);
+* GMU_Anim_New(inst/obj, var_name, tween, ease, start, change, duration, delay*, arg1*, arg2*);
 	* 描述
-		* 为目标实例或目标物体的所有实例添加缓动。
+		* 创建缓动实例
 	* inst/obj
 		* 目标实例或物体
 	* var_name
 		* 变量名称
 	* tween
-		* tween效果，详见 常量 部分
+		* tween效果，详见`常量`部分
 	* ease
-		* ease效果，详见 常量 部分
+		* ease效果，详见`常量`部分
 	* start
 		* 起始值
 	* change
@@ -52,59 +46,63 @@ GMU_Anim_New(target, "x", GMU_ANIM_QUAD, GMU_ANIM_OUT, 100, 200, 15, 30);
 		* 持续时间
 	* delay
 		* 延迟（可选）
-	* extra1
-		* 附加参数 1（可选）
-	* extra2
-		* 附加参数 2（可选）
+	* arg1（可选）
+		* 附加参数 1
+	* arg2（可选）
+		* 附加参数 2
 	* 返回值
-		* 缓动实例；若有多个目标实例，则会返回数组。
+		* 缓动实例；若有多个目标实例，则会返回数组
 
-* GMU_Anim_Stop(anim/inst/obj);
+* GMU_Anim_Stop(anim/inst/obj, var_name*);
 	* 描述
-		* 终止目标缓动实例，或终止目标实例的所有缓动实例，或终止目标物体的所有实例的所有缓动实例
+		* 终止目标缓动实例
 	* anim/inst/obj
 		* 目标缓动实例/实例/物体
+	* var_name（可选）
+		* 变量名称，若填写，则只停止作用在该变量上的缓动实例
 	* 返回值
-		* true/false 是否有缓动实例被终止。
+		* 是否有缓动实例被终止
 
-* GMU_Anim_Skip(anim/inst/obj);
+* GMU_Anim_Skip(anim/inst/obj, var_name*);
 	* 描述
-		* 提前结束目标缓动实例，或提前结束目标实例的所有缓动实例，或提前结束目标物体的所有实例的所有缓动实例
+		* 提前结束目标缓动实例
 	* anim/inst/obj
 		* 目标缓动实例/实例/物体
+	* var_name（可选）
+		* 变量名称，若填写，则只提前结束作用在该变量上的缓动实例
 	* 返回值
-		* true/false 是否有缓动实例被提前结束。
+		* 是否有缓动实例被提前结束。
 
 * GMU_Anim_IsExists(anim/inst/obj, var_name*);
 	* 描述
-		* 查询目标缓动实例是否存在，或查询目标实例上是否有缓动存在，或查询目标物体的所有实例上是否有缓动存在
+		* 查询目标缓动实例是否存在
 	* anim/inst/obj
 		* 目标缓动实例/实例/物体
-	* var_name
-		* 变量名称（可选），若填写，则检查查询到的缓动实例是否作用于指定的变量上。
+	* var_name（可选）
+		* 变量名称，若填写，则只查询作用在该变量上的缓动实例
 	* 返回值
-		* true/false 缓动实例是否存在。
+		* 缓动实例是否存在。
 
-常量
+枚举常量
 -----
 tween效果
 -----
-0. GMU_ANIM_LINEAR
-1. GMU_ANIM_SINE
-2. GMU_ANIM_QUAD
-3. GMU_ANIM_CUBIC
-4. GMU_ANIM_QUART
-5. GMU_ANIM_QUINT
-6. GMU_ANIM_EXPO
-7. GMU_ANIM_CIRC
-8. GMU_ANIM_BACK
-9. GMU_ANIM_ELASTIC
-10. GMU_ANIM_BOUNCE
+0. GMU_ANIM.LINEAR
+1. GMU_ANIM.SINE
+2. GMU_ANIM.QUAD
+3. GMU_ANIM.CUBIC
+4. GMU_ANIM.QUART
+5. GMU_ANIM.QUINT
+6. GMU_ANIM.EXPO
+7. GMU_ANIM.CIRC
+8. GMU_ANIM.BACK
+9. GMU_ANIM.ELASTIC
+10. GMU_ANIM.BOUNCE
 
 ease效果
 -----
-11. GMU_ANIM_IN
-12. GMU_ANIM_OUT
-13. GMU_ANIM_IN_OUT
+11. GMU_ANIM.IN
+12. GMU_ANIM.OUT
+13. GMU_ANIM.IN_OUT
 
 您可以在 www.easings.net 观看不同的缓动效果。
