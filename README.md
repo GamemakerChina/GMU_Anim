@@ -44,8 +44,8 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 		* 变更值
 	* duration
 		* 持续时间
-	* delay
-		* 延迟（可选）
+	* delay（可选）
+		* 延迟
 	* arg1（可选）
 		* 附加参数 1
 	* arg2（可选）
