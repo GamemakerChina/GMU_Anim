@@ -7,11 +7,11 @@ GMU_Anim (v2.0.0)
 
 安装
 -----
-YYMP 扩展包安装
+YYMP 扩展包安装（GMS 2）
 -----
 从 [https://github.com/GamemakerChina/GMU_Anim/releases](https://github.com/GamemakerChina/GMU_Anim/releases) 中下载 `.yymp` 后拖入 GMS2 并导入全部资源即可。
 
-GMEZ 扩展包安装（是否可用未知）
+GMEZ 扩展包安装（GMS 1，是否可用未知）
 -----
 从 [https://github.com/GamemakerChina/GMU_Anim/releases](https://github.com/GamemakerChina/GMU_Anim/releases) 中下载 `.gmez` 后拖入 GM:S 并导入全部资源即可。
 
