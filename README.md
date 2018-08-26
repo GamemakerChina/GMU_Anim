@@ -1,4 +1,4 @@
-GMU_Anim (v2.0.0)
+GMU_Anim (v2.0.1)
 =====
 简介
 -----
@@ -14,7 +14,6 @@ YYMP 扩展包安装（GMS 2）
 GMEZ 扩展包安装（GMS 1，是否可用未知）
 -----
 从 [https://github.com/GamemakerChina/GMU_Anim/releases](https://github.com/GamemakerChina/GMU_Anim/releases) 中下载 `.gmez` 后拖入 GM:S 并导入全部资源即可。
-
 GM:S 版本分支：[https://github.com/LiarOnce/GMU_Anim/tree/gms1](https://github.com/LiarOnce/GMU_Anim/tree/gms1)
 
 手动安装
@@ -39,7 +38,7 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 	* 描述
 		* 声明枚举常量，无需调用该函数
 
-* GMU_Anim_New(inst/obj, var_name, tween, ease, start, change, duration, delay*, arg1*, arg2*);
+* GMU_Anim_New(target, var_name, tween, ease, start, change, duration, delay*, arg1*, arg2*);
 	* 描述
 		* 创建缓动实例
 	* inst/obj
@@ -65,7 +64,7 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 	* 返回值
 		* 缓动实例；若有多个目标实例，则会返回数组
 
-* GMU_Anim_Stop(anim_inst/inst/obj, var_name*);
+* GMU_Anim_Stop(target, var_name*);
 	* 描述
 		* 终止目标缓动实例
 	* anim/inst/obj
@@ -75,7 +74,7 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 	* 返回值
 		* 是否有缓动实例被终止
 
-* GMU_Anim_Skip(anim_inst/inst/obj, var_name*);
+* GMU_Anim_Skip(target, var_name*);
 	* 描述
 		* 提前结束目标缓动实例
 	* anim/inst/obj
@@ -85,7 +84,7 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 	* 返回值
 		* 是否有缓动实例被提前结束。
 
-* GMU_Anim_IsExists(anim_inst/inst/obj, var_name*);
+* GMU_Anim_IsExists(target, var_name*);
 	* 描述
 		* 查询目标缓动实例是否存在
 	* anim/inst/obj
