@@ -1,4 +1,4 @@
-///@arg anim_inst/inst/obj
+///@arg target
 ///@arg var_name*
 var inst=argument[0];
 var var_name="";
@@ -11,12 +11,8 @@ var result=false;
 if(instance_exists(inst)){
 	if(inst.object_index==_gmu_anim){
 		if(instance_exists(inst._inst)){
-			if(var_name==""){
+			if(var_name==""||inst._var_name==var_name){
 				result=true;
-			}else{
-				if(inst._var_name==var_name){
-					result=true;
-				}
 			}
 		}
 	}else{
@@ -27,9 +23,11 @@ if(instance_exists(inst)){
 			inst_find=instance_find(_gmu_anim,proc);
 			if(instance_exists(inst_find)){
 				if(instance_exists(inst_find._inst)){
-					if(var_name==""||inst_find._var_name==var_name){
-						result=true;
-						break;
+					if(inst_find._inst==inst||inst_find._inst.object_index=inst){
+						if(var_name==""||inst_find._var_name==var_name){
+							result=true;
+							break;
+						}
 					}
 				}
 			}

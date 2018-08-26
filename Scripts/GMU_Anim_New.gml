@@ -1,4 +1,4 @@
-///@arg inst/obj
+///@arg target
 ///@arg var_name
 ///@arg tween
 ///@arg ease

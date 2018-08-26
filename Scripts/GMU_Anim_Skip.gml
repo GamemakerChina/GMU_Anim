@@ -1,4 +1,4 @@
-///@arg anim_inst/inst/obj
+///@arg target
 ///@arg var_name*
 var inst=argument[0];
 var var_name="";
@@ -11,9 +11,11 @@ var result=false;
 if(instance_exists(inst)){
 	if(inst.object_index==_gmu_anim){
 		if(instance_exists(inst._inst)){
-			variable_instance_set(inst._inst,inst._var_name,inst._start+inst._change);
-			instance_destroy(inst);
-			result=true;
+			if(var_name==""||inst._var_name==var_name){
+				variable_instance_set(inst._inst,inst._var_name,inst._start+inst._change);
+				instance_destroy(inst);
+				result=true;
+			}
 		}
 	}else{
 		var proc=0;

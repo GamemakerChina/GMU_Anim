@@ -1,3 +1,5 @@
+// GMU_Anim v2.0.1
+
 enum GMU_ANIM{
 	LINEAR,
 	SINE,
