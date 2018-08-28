@@ -34,6 +34,22 @@ if(instance_exists(inst)){
 			proc+=1;
 		}
 	}
+}else if(inst==global){
+	var proc=0;
+	var inst_find=noone;
+	
+	repeat(instance_number(_gmu_anim)){
+		inst_find=instance_find(_gmu_anim,proc);
+		if(instance_exists(inst_find)){
+			if(inst_find._inst==global){
+				if(var_name==""||inst_find._var_name==var_name){
+					result=true;
+					break;
+				}
+			}
+		}
+		proc+=1;
+	}
 }
 
 return result;

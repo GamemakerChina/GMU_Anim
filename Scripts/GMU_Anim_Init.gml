@@ -1,4 +1,4 @@
-// GMU_Anim v2.0.1
+// GMU_Anim v2.1.0
 
 enum GMU_ANIM{
 	LINEAR,

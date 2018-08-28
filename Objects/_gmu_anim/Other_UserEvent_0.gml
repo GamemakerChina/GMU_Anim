@@ -338,4 +338,8 @@ switch(_tween){
 		break;
 }
 
-variable_instance_set(_inst,_var_name,r);
+if(_inst!=global){
+	variable_instance_set(_inst,_var_name,r);
+}else{
+	variable_global_set(_var_name,r);
+}
