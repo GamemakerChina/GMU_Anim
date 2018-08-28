@@ -1,4 +1,4 @@
-GMU_Anim (v2.0.1)
+GMU_Anim (v2.1.0)
 =====
 简介
 -----
@@ -41,14 +41,14 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 * GMU_Anim_New(target, var_name, tween, ease, start, change, duration, delay*, arg1*, arg2*);
 	* 描述
 		* 创建缓动实例
-	* inst/obj
-		* 目标实例或物体
+	* target
+		* 目标实例/物体/global
 	* var_name
 		* 变量名称
 	* tween
-		* tween效果，详见`枚举常量`部分
+		* Tween效果，详见`枚举常量`部分
 	* ease
-		* ease效果，详见`枚举常量`部分
+		* Ease效果，详见`枚举常量`部分
 	* start
 		* 起始值
 	* change
@@ -67,8 +67,8 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 * GMU_Anim_Stop(target, var_name*);
 	* 描述
 		* 终止目标缓动实例
-	* anim/inst/obj
-		* 目标缓动实例/实例/物体
+	* target
+		* 目标缓动实例/实例/物体/global
 	* var_name（可选）
 		* 变量名称，若填写，则只停止作用在该变量上的缓动实例
 	* 返回值
@@ -77,8 +77,8 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 * GMU_Anim_Skip(target, var_name*);
 	* 描述
 		* 提前结束目标缓动实例
-	* anim/inst/obj
-		* 目标缓动实例/实例/物体
+	* target
+		* 目标缓动实例/实例/物体/global
 	* var_name（可选）
 		* 变量名称，若填写，则只提前结束作用在该变量上的缓动实例
 	* 返回值
@@ -87,8 +87,8 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 * GMU_Anim_IsExists(target, var_name*);
 	* 描述
 		* 查询目标缓动实例是否存在
-	* anim/inst/obj
-		* 目标缓动实例/实例/物体
+	* target
+		* 目标缓动实例/实例/物体/global
 	* var_name（可选）
 		* 变量名称，若填写，则只查询作用在该变量上的缓动实例
 	* 返回值
@@ -96,7 +96,7 @@ GMU_Anim_New(target, "x", GMU_ANIM.QUAD, GMU_ANIM.OUT, 100, 200, 15, 30);
 
 枚举常量
 -----
-tween效果
+Tween效果
 -----
 0. GMU_ANIM.LINEAR
 1. GMU_ANIM.SINE
@@ -110,7 +110,7 @@ tween效果
 9. GMU_ANIM.ELASTIC
 10. GMU_ANIM.BOUNCE
 
-ease效果
+Ease效果
 -----
 11. GMU_ANIM.IN
 12. GMU_ANIM.OUT
